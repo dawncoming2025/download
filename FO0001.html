@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>下载文件 - 曙光将至</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a202c;
+            color: #e2e8f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            background-color: #2d3748;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            padding: 1rem;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        nav .logo {
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+
+        nav .nav-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        nav .nav-links a {
+            color: #a0aec0;
+            text-decoration: none;
+        }
+
+        nav .nav-links a:hover {
+            color: #e2e8f0;
+        }
+
+        main {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 2.25rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        main p {
+            color: #a0aec0;
+            margin-bottom: 2rem;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .features {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .features {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+
+        .feature {
+            background-color: #2d3748;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        .downloadOption {
+            width: 95%;
+            height: 10px;
+            background-color: #36568d;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .OptionPS{
+            text-align: right;
+            font-size: 15px;
+            color: #a0aec0;
+            cursor: pointer;
+        }
+
+        .feature h2 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature p {
+            color: #a0aec0;
+        }
+
+        footer {
+            background-color: #2d3748;
+            box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1), 0 -2px 4px -1px rgba(0, 0, 0, 0.06);
+            padding: 1rem;
+            text-align: right;
+            color: #a0aec0;
+        }
+
+        #searchInput {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border-radius: 0.25rem;
+            border: 1px solid #a0aec0;
+            background-color: #1a202c;
+            color: #e2e8f0;
+        }
+
+        #downloadList {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #downloadList li {
+            margin-bottom: 0.5rem;
+        }
+
+        #downloadList li a {
+            color: #a0aec0;
+            text-decoration: none;
+        }
+
+        #downloadList li a:hover {
+            color: #e2e8f0;
+        }
+
+        /* 模态框样式 */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        .modal-content {
+            background-color: #2d3748;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            border-radius: 0.5rem;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 导航栏 -->
+    <nav>
+        <div class="container">
+            <div class="logo">
+                曙光将至
+            </div>
+            <div class="nav-links">
+                <a href="https://dawncoming2025.github.io">主页</a>
+                <a href="https://dawncoming2025.github.io/recommand">推荐</a>
+                <a href="https://dawncoming2025.github.io/download">下载</a>
+                <a href="https://dawncoming2025.github.io/blog">博客</a>
+                <a href="https://dawncoming2025.github.io/team">团队</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要内容 -->
+    <main>
+        <h1>曙光启动器</h1>
+        <p>
+            致力于快速切换游戏的启动器
+        </p>
+        <div class="feature">
+            <h2>版本列表</h2>
+            <input type="text" id="searchInput" placeholder="搜索版本项..." style="width: 97%;">
+            <ul id="downloadList">
+                <li>
+                    <div class="downloadOption">
+                        <h3>V1.0.0</h3>
+                        <p class="OptionPS" onclick="openV100Modal()">
+                            下载选项
+                        </p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </main>
+
+    <!-- 模态框 -->
+    <div id="V100Modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeV100Modal()">&times;</span>
+            <h2>下载选项</h2>
+            <p>这里可以添加具体的下载选项内容。</p>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer>
+        Developed by <a href="https://www.luogu.com.cn/team/79974" style="color: #a0aec0; text-decoration: none;" target="_blank">Hogwarts</a>. 
+        <br>
+        &copy;  2025~2035 曙光之足迹 
+        <br>
+        All rights reserved.
+    </footer>
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const downloadList = document.getElementById('downloadList');
+        const listItems = downloadList.getElementsByTagName('li');
+
+        searchInput.addEventListener('input', function () {
+            const searchTerm = this.value.toLowerCase();
+            for (let i = 0; i < listItems.length; i++) {
+                const itemText = listItems[i].textContent.toLowerCase();
+                if (itemText.includes(searchTerm)) {
+                    listItems[i].style.display = '';
+                } else {
+                    listItems[i].style.display = 'none';
+                }
+            }
+        });
+
+        // 打开模态框
+        function openV100Modal() {
+            document.getElementById("V100Modal").style.display = "block";
+        }
+
+        // 关闭模态框
+        function closeV100Modal() {
+            document.getElementById("V100Modal").style.display = "none";
+        }
+
+        // 点击模态框外部关闭模态框
+        window.onclick = function(event) {
+            const modal = document.getElementById("V100Modal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+
+</html>    

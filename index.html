@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>下载 - 曙光将至</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a202c;
+            color: #e2e8f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            background-color: #2d3748;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            padding: 1rem;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        nav .logo {
+            font-size: 1.25rem;
+            font-weight: bold;
+        }
+
+        nav .nav-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        nav .nav-links a {
+            color: #a0aec0;
+            text-decoration: none;
+        }
+
+        nav .nav-links a:hover {
+            color: #e2e8f0;
+        }
+
+        main {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 2.25rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        main p {
+            color: #a0aec0;
+            margin-bottom: 2rem;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .features {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .features {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+        }
+
+        .feature {
+            background-color: #2d3748;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        .downloadOption {
+            width: 95%;
+            height: 10px;
+            background-color: #36568d;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .OptionPS{
+            text-align: right;
+            font-size: 15px;
+            color: #a0aec0;
+        }
+
+        .feature h2 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .feature p {
+            color: #a0aec0;
+        }
+
+        footer {
+            background-color: #2d3748;
+            box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.1), 0 -2px 4px -1px rgba(0, 0, 0, 0.06);
+            padding: 1rem;
+            text-align: right;
+            color: #a0aec0;
+        }
+
+        #searchInput {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border-radius: 0.25rem;
+            border: 1px solid #a0aec0;
+            background-color: #1a202c;
+            color: #e2e8f0;
+        }
+
+        #downloadList {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #downloadList li {
+            margin-bottom: 0.5rem;
+        }
+
+        #downloadList li a {
+            color: #a0aec0;
+            text-decoration: none;
+        }
+
+        #downloadList li a:hover {
+            color: #e2e8f0;
+        }
+
+        /* 新增页码导航样式 */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 2rem;
+            gap: 0.5rem;
+        }
+
+        .pagination a {
+            padding: 0.5rem 1rem;
+            background-color: #36568d;
+            color: #e2e8f0;
+            border-radius: 0.25rem;
+            text-decoration: none;
+        }
+
+        .pagination a:hover {
+            background-color: #2c4875;
+        }
+
+        .pagination .current {
+            background-color: #1a202c;
+            border: 1px solid #36568d;
+        }
+
+        .pagination .disabled {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 导航栏 -->
+    <nav>
+        <div class="container">
+            <div class="logo">
+                曙光将至
+            </div>
+            <div class="nav-links">
+                <a href="https://dawncoming2025.github.io">主页</a>
+                <a href="https://dawncoming2025.github.io/recommand">推荐</a>
+                <a href="https://dawncoming2025.github.io/download">下载</a>
+                <a href="https://dawncoming2025.github.io/blog">博客</a>
+                <a href="https://dawncoming2025.github.io/team">团队</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要内容 -->
+    <main>
+        <h1>下载大厅</h1>
+        <p>
+            C++小游戏、MC模组、应用程序，你想要的都在这里！
+        </p>
+        <div class="feature">
+            <h2>下载列表</h2>
+            <input type="text" id="searchInput" placeholder="搜索下载项..." style="width: 97%;">
+            <ul id="downloadList">
+                <!-- 示例下载项 - 实际应用中会根据搜索和分页动态生成 -->
+            </ul>
+            <!-- 新增页码导航 -->
+            <div class="pagination" id="pagination">
+                <a href="#" id="prevPage" data-page="prev"><</a>
+                <!-- 页码会动态生成 -->
+                <a href="#" id="nextPage" data-page="next">></a>
+            </div>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        Developed by <a href="https://www.luogu.com.cn/team/79974" style="color: #a0aec0; text-decoration: none;" target="_blank">Hogwarts</a>. 
+        <br>
+        &copy;  2025~2035 曙光之足迹 
+        <br>
+        All rights reserved.
+    </footer>
+    <script>
+        // 模拟数据 - 实际应用中可能从API获取
+        const mockData = [
+            { id: "FO0001", name: "曙光启动器", type: "游戏启动器", author: "WangYinxiAlex" },
+            { id: "FO0002", name: "【黑神话：悟空】模组", type: "MC模组", author: "WangYinxiAlex" },
+            { id: "FO0003", name: "超级马里奥", type: "C++小游戏", author: "GameDeveloper" },
+            { id: "FO0004", name: "我的世界", type: "C++小游戏", author: "GameDeveloper" },
+            { id: "FO0005", name: "植物大战僵尸", type: "C++小游戏", author: "GameDeveloper" },
+            { id: "FO0006", name: "水果忍者", type: "C++小游戏", author: "GameDeveloper" },
+            { id: "FO0007", name: "愤怒的小鸟", type: "C++小游戏", author: "GameDeveloper" },
+            { id: "FO0008", name: "部落冲突", type: "C++小游戏", author: "GameDeveloper" },
+            { id: "FO0009", name: "皇室战争", type: "C++小游戏", author: "GameDeveloper" },
+            { id: "FO0010", name: "坦克大战", type: "C++小游戏", author: "GameDeveloper" },
+            { id: "FO0011", name: "扫雷", type: "C++小游戏", author: "GameDeveloper" },
+            { id: "FO0012", name: "俄罗斯方块", type: "C++小游戏", author: "GameDeveloper" },
+            { id: "FO0013", name: "贪吃蛇", type: "C++小游戏", author: "GameDeveloper" },
+            { id: "FO0014", name: "2048", type: "C++小游戏", author: "GameDeveloper" },
+            { id: "FO0015", name: "Flappy Bird", type: "C++小游戏", author: "GameDeveloper" },
+            { id: "FO0016", name: "MC光影模组", type: "MC模组", author: "ModCreator" },
+            { id: "FO0017", name: "建筑扩展模组", type: "MC模组", author: "ModCreator" },
+            { id: "FO0018", name: "生物增强模组", type: "MC模组", author: "ModCreator" },
+            { id: "FO0019", name: "工具升级模组", type: "MC模组", author: "ModCreator" },
+            { id: "FO0020", name: "武器增强模组", type: "MC模组", author: "ModCreator" },
+            { id: "FO0021", name: "资源包管理器", type: "应用程序", author: "AppDev" },
+            { id: "FO0022", name: "游戏截图工具", type: "应用程序", author: "AppDev" },
+            { id: "FO0023", name: "录屏软件", type: "应用程序", author: "AppDev" },
+            { id: "FO0024", name: "地图编辑器", type: "应用程序", author: "AppDev" },
+            { id: "FO0025", name: "模组安装器", type: "应用程序", author: "AppDev" },
+            { id: "FO0026", name: "游戏配置工具", type: "应用程序", author: "AppDev" },
+            { id: "FO0027", name: "皮肤管理器", type: "应用程序", author: "AppDev" },
+            { id: "FO0028", name: "光影效果调整器", type: "应用程序", author: "AppDev" },
+            { id: "FO0029", name: "服务器管理工具", type: "应用程序", author: "AppDev" },
+            { id: "FO0030", name: "游戏存档备份", type: "应用程序", author: "AppDev" },
+            { id: "FO0031", name: "MC助手", type: "应用程序", author: "AppDev" },
+            { id: "FO0032", name: "游戏性能优化工具", type: "应用程序", author: "AppDev" },
+            { id: "FO0033", name: "游戏MOD制作教程", type: "教程", author: "TutorialCreator" },
+            { id: "FO0034", name: "C++编程入门", type: "教程", author: "TutorialCreator" },
+            { id: "FO0035", name: "游戏开发指南", type: "教程", author: "TutorialCreator" },
+            { id: "FO0036", name: "资源包制作教程", type: "教程", author: "TutorialCreator" },
+            { id: "FO0037", name: "光影效果制作", type: "教程", author: "TutorialCreator" },
+            { id: "FO0038", name: "服务器搭建指南", type: "教程", author: "TutorialCreator" },
+            { id: "FO0039", name: "皮肤设计教程", type: "教程", author: "TutorialCreator" },
+            { id: "FO0040", name: "地图设计教程", type: "教程", author: "TutorialCreator" },
+            { id: "FO0041", name: "插件开发教程", type: "教程", author: "TutorialCreator" },
+            { id: "FO0042", name: "模组开发教程", type: "教程", author: "TutorialCreator" },
+            { id: "FO0043", name: "游戏音效设计", type: "教程", author: "TutorialCreator" },
+            { id: "FO0044", name: "游戏UI设计", type: "教程", author: "TutorialCreator" },
+            { id: "FO0045", name: "游戏性能优化", type: "教程", author: "TutorialCreator" },
+            { id: "FO0046", name: "游戏测试指南", type: "教程", author: "TutorialCreator" },
+            { id: "FO0047", name: "游戏发布流程", type: "教程", author: "TutorialCreator" },
+            { id: "FO0048", name: "游戏宣传推广", type: "教程", author: "TutorialCreator" },
+            { id: "FO0049", name: "游戏运营指南", type: "教程", author: "TutorialCreator" },
+            { id: "FO0050", name: "游戏数据分析", type: "教程", author: "TutorialCreator" },
+        ];
+
+        const searchInput = document.getElementById('searchInput');
+        const downloadList = document.getElementById('downloadList');
+        const pagination = document.getElementById('pagination');
+        
+        // 每页显示数量
+        const itemsPerPage = 10;
+        
+        // 获取当前URL中的参数
+        const urlParams = new URLSearchParams(window.location.search);
+        const currentKeyword = urlParams.get('keyword') || '';
+        let currentPage = parseInt(urlParams.get('page')) || 1;
+        
+        // 根据实际数据量计算总页数
+        let totalPages = Math.ceil(mockData.length / itemsPerPage);
+        
+        // 确保当前页码在有效范围内
+        currentPage = Math.max(1, Math.min(currentPage, totalPages));
+        
+        // 设置搜索框的值为当前关键词
+        searchInput.value = currentKeyword;
+        
+        // 处理搜索输入
+        searchInput.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                const keyword = this.value.trim();
+                if (keyword) {
+                    // 构建新URL并跳转
+                    const newUrl = `${window.location.origin}${window.location.pathname}?keyword=${encodeURIComponent(keyword)}&page=1`;
+                    window.location.href = newUrl;
+                } else {
+                    // 如果关键词为空，显示所有结果的第一页
+                    const newUrl = `${window.location.origin}${window.location.pathname}?page=1`;
+                    window.location.href = newUrl;
+                }
+            }
+        });
+        
+        // 处理页码点击
+        pagination.addEventListener('click', function (e) {
+            e.preventDefault();
+            const link = e.target.closest('a');
+            if (link) {
+                const page = link.getAttribute('data-page');
+                let newPage;
+                
+                if (page === 'prev') {
+                    newPage = Math.max(1, currentPage - 1);
+                } else if (page === 'next') {
+                    newPage = Math.min(totalPages, currentPage + 1);
+                } else {
+                    newPage = parseInt(page);
+                }
+                
+                const keyword = searchInput.value.trim() || '';
+                
+                // 构建新URL并跳转
+                const newUrl = keyword 
+                    ? `${window.location.origin}${window.location.pathname}?keyword=${encodeURIComponent(keyword)}&page=${newPage}`
+                    : `${window.location.origin}${window.location.pathname}?page=${newPage}`;
+                
+                window.location.href = newUrl;
+            }
+        });
+        
+        // 生成下载项HTML
+        function generateDownloadItems(items) {
+            downloadList.innerHTML = '';
+            
+            if (items.length === 0) {
+                downloadList.innerHTML = '<li class="text-center py-4 text-gray-400">没有找到匹配的结果</li>';
+                return;
+            }
+            
+            items.forEach(item => {
+                const li = document.createElement('li');
+                li.innerHTML = `
+                    <a href="https://dawncoming2025.github.io/${item.id}">
+                        <div class="downloadOption">
+                            <h3>${item.name}</h3>
+                            <p class="OptionPS">
+                                <br>
+                                类型：${item.type}
+                                <br>
+                                作者：${item.author}
+                            </p>
+                        </div>
+                    </a>
+                `;
+                downloadList.appendChild(li);
+            });
+        }
+        
+        // 生成页码导航
+        function generatePagination() {
+            // 清空现有页码
+            const pageLinksContainer = pagination.querySelector('#prevPage').nextElementSibling;
+            if (pageLinksContainer && pageLinksContainer.id === 'pageLinks') {
+                pagination.removeChild(pageLinksContainer);
+            }
+            
+            // 创建页码容器
+            const pageLinks = document.createElement('div');
+            pageLinks.id = 'pageLinks';
+            
+            // 计算要显示的页码范围
+            let startPage, endPage;
+            
+            if (totalPages <= 5) {
+                // 如果总页数少于等于5，显示全部页码
+                startPage = 1;
+                endPage = totalPages;
+            } else if (currentPage <= 3) {
+                // 当前页在前3页，显示前5页
+                startPage = 1;
+                endPage = 5;
+            } else if (currentPage >= totalPages - 2) {
+                // 当前页在后3页，显示后5页
+                startPage = totalPages - 4;
+                endPage = totalPages;
+            } else {
+                // 当前页在中间，显示当前页前后各2页
+                startPage = currentPage - 2;
+                endPage = currentPage + 2;
+            }
+            
+            // 生成页码链接
+            for (let i = startPage; i <= endPage; i++) {
+                const link = document.createElement('a');
+                link.href = '#';
+                link.dataset.page = i;
+                link.textContent = i;
+                
+                if (i === currentPage) {
+                    link.classList.add('current');
+                }
+                
+                pageLinks.appendChild(link);
+            }
+            
+            // 插入到上一页和下一页之间
+            pagination.insertBefore(pageLinks, pagination.querySelector('#nextPage'));
+            
+            // 更新上一页和下一页按钮状态
+            const prevPage = pagination.querySelector('#prevPage');
+            const nextPage = pagination.querySelector('#nextPage');
+            
+            if (currentPage === 1) {
+                prevPage.classList.add('disabled');
+            } else {
+                prevPage.classList.remove('disabled');
+            }
+            
+            if (currentPage === totalPages) {
+                nextPage.classList.add('disabled');
+            } else {
+                nextPage.classList.remove('disabled');
+            }
+        }
+        
+        // 根据关键词过滤数据
+        function filterData(keyword) {
+            if (!keyword) {
+                // 如果没有关键词，返回所有数据
+                return mockData;
+            }
+            
+            const searchTerm = keyword.toLowerCase();
+            return mockData.filter(item => 
+                item.name.toLowerCase().includes(searchTerm) || 
+                item.type.toLowerCase().includes(searchTerm) || 
+                item.author.toLowerCase().includes(searchTerm)
+            );
+        }
+        
+        // 初始化页面
+        function initPage() {
+            // 过滤数据
+            const filteredData = filterData(currentKeyword);
+            
+            // 根据过滤后的数据量计算总页数
+            totalPages = Math.max(1, Math.ceil(filteredData.length / itemsPerPage));
+            
+            // 确保当前页码不超过实际的总页数
+            if (currentPage > totalPages) {
+                currentPage = totalPages;
+                // 更新URL但不刷新页面
+                const urlParams = new URLSearchParams(window.location.search);
+                urlParams.set('page', currentPage);
+                window.history.replaceState({}, '', `${window.location.pathname}?${urlParams.toString()}`);
+            }
+            
+            // 获取当前页的数据
+            const startIndex = (currentPage - 1) * itemsPerPage;
+            const endIndex = Math.min(startIndex + itemsPerPage, filteredData.length);
+            const currentPageData = filteredData.slice(startIndex, endIndex);
+            
+            // 生成下载项
+            generateDownloadItems(currentPageData);
+            
+            // 生成页码导航
+            generatePagination();
+        }
+        
+        // 初始化页面
+        initPage();
+    </script>
+</body>
+
+</html>
