@@ -212,9 +212,9 @@
 
     <!-- 主要内容 -->
     <main>
-        <h1>曙光启动器</h1>
+        <h1>DCChatting应用软件及源码</h1>
         <p>
-            致力于快速切换游戏的启动器
+            局域网聊天应用软件
         </p>
         <div class="feature">
             <h2>版本列表</h2>
@@ -224,6 +224,13 @@
                     <div class="downloadOption">
                         <h3>V1.0.0</h3>
                         <p class="OptionPS" onclick="openV100Modal()">
+                            下载选项
+                        </p>
+                    </div>
+                    <br>
+                    <div class="downloadOption">
+                        <h3>V1.0.1</h3>
+                        <p class="OptionPS" onclick="openV101Modal()">
                             下载选项
                         </p>
                     </div>
@@ -237,7 +244,24 @@
         <div class="modal-content">
             <span class="close" onclick="closeV100Modal()">&times;</span>
             <h2>下载选项</h2>
-            <p>这里可以添加具体的下载选项内容。</p>
+            <a href="https://dawncoming2025.github.io/download/局域网闪传文件.exe" style="text-decoration: none;">
+                <p>局域网闪传文件.exe</p>
+            </a>
+            <a href="https://dawncoming2025.github.io/download/局域网闪传文件.py" style="text-decoration: none;">
+                <p>局域网闪传文件.py</p>
+            </a>
+        </div>
+    </div>
+    <div id="V101Modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeV101Modal()">&times;</span>
+            <h2>下载选项</h2>
+            <a href="https://dawncoming2025.github.io/download/DCChatting.exe" style="text-decoration: none;">
+                <p>DCChatting.exe</p>
+            </a>
+            <a href="https://dawncoming2025.github.io/download/DCChatting.py" style="text-decoration: none;">
+                <p>DCChatting.py</p>
+            </a>
         </div>
     </div>
 
@@ -270,15 +294,27 @@
         function openV100Modal() {
             document.getElementById("V100Modal").style.display = "block";
         }
+        function openV101Modal() {
+            document.getElementById("V101Modal").style.display = "block";
+        }
 
         // 关闭模态框
         function closeV100Modal() {
             document.getElementById("V100Modal").style.display = "none";
         }
+        function closeV101Modal() {
+            document.getElementById("V101Modal").style.display = "none";
+        }
 
         // 点击模态框外部关闭模态框
         window.onclick = function(event) {
             const modal = document.getElementById("V100Modal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+        window.onclick = function(event) {
+            const modal = document.getElementById("V101Modal");
             if (event.target == modal) {
                 modal.style.display = "none";
             }
